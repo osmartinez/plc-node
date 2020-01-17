@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0
+}
+
+
+
+div{
+  height:100%;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 18.6% 81.4%;
+  grid-template-rows: 1fr;
+  grid-template-areas: "contenedor-menu contenedor-principal";
+  width:100%; 
+  height:100vh !important; 
+  overflow:hidden;
+}
+
+.contenedor-principal { grid-area: contenedor-principal; }
+
+.contenedor-menu { 
+  grid-area: contenedor-menu;
+  background-color: lightslategray;
+ }
+
+ .btn-estado{
+   display: block;
+   height: 20%;
+   width: 100%;
+   margin: 1px;
+   white-space: normal;
+ }
+
+ .btn-menu{
+  display: block;
+  height: 33.3%;
+  width: 95%;
+  margin: 4px;
+ }
+
+
+.pagina-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "botonera-1 botonera-2 botonera-3 botonera-4";
+  border: 1px;
+  background-color: gray;
+}
+
+.botonera-1 { grid-area: botonera-1; margin: 0px 4px 0px 0px}
+
+.botonera-2 { grid-area: botonera-2; margin: 0px 10px 0px 4px}
+
+.botonera-3 { grid-area: botonera-3; margin: 0px 4px 0px 10px}
+
+.botonera-4 { grid-area: botonera-4; margin:0px 0px 0px 4px}

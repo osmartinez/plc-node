@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <script>document.addEventListener("DOMContentLoaded", function (event) {
+      armar_tabla_estados()
+    });</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <title>PLC</title>
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="contenedor-principal">
+      <div id="pagina-1" class="pagina-1">
+        
+      </div>
+    </div>
+    <div class="contenedor-menu">
+      <button class="btn btn-success btn-menu"></button>
+      <button class="btn btn-success btn-menu"></button>
+      <button class="btn btn-success btn-menu"></button>
+    </div>
+  </div>
+
+</body>
+<script src="renderer.js"></script>
+
+<script>
+    const pagina1 = document.getElementById('pagina-1')
+
+  function armar_tabla_estados() {
+    let num_lados = 2
+    let num_prensas_por_lado = 2
+    let num_botones_rojos_por_prensa = 2
+    let num_botones_azules_por_presna = 3
+
+
+    for (let i = 0; i < num_prensas_por_lado * num_lados; i++) {
+      let botonera_i = document.createElement('DIV')
+      let botonera_i_id = "botonera-" + (i + 1)
+      botonera_i.classList.add(botonera_i_id)
+      botonera_i.id = botonera_i_id
+
+      let botones_rojos = []
+      let botones_azules = []
+
+      let botonTemp = document.createElement('BUTTON'); botonTemp.id = 'botonTemp'+(i+1); botones_rojos.push(botonTemp)
+      let botonTime = document.createElement('BUTTON');botonTime.id = 'botonTime'+(i+1); botones_rojos.push(botonTime)
+      let botonCont1 = document.createElement('BUTTON');botonCont1.id = 'botonCont1'+(i+1); botones_azules.push(botonCont1)
+      let botonCont2 = document.createElement('BUTTON');botonCont2.id = 'botonCont2'+(i+1); botones_azules.push(botonCont2)
+      let botonCont3 = document.createElement('BUTTON');botonCont3.id = 'botonCont3'+(i+1); botones_azules.push(botonCont3)
+
+      for (let btn of botones_rojos) {
+        btn.classList.add('btn')
+        btn.classList.add('btn-danger')
+        btn.classList.add('btn-estado')
+
+        botonera_i.appendChild(btn)
+        
+        btn.addEventListener('click',()=>{
+          armar_tabla_edicion(i+1)
+        },false)
+      }
+
+      for (let btn of botones_azules) {
+        btn.classList.add('btn')
+        btn.classList.add('btn-primary')
+        btn.classList.add('btn-estado')
+
+        botonera_i.appendChild(btn)
+        btn.addEventListener('click',()=>{alert(btn.id)},false)
+      }
+
+      pagina1.appendChild(botonera_i)
+    }
+  }
+
+  function armar_tabla_edicion(id_prensa){
+    pagina1.innerHTML=""
+  }
+
+</script>
+
+</html>
